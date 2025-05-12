@@ -16,6 +16,7 @@ from urllib3.util.retry import Retry
 import threading
 import os
 from dotenv import load_dotenv
+import chromedriver_autoinstaller
 
 # Load environment variables
 load_dotenv()
@@ -67,11 +68,20 @@ def get_id_from_slug(slug):
     data = response.json()
     print("CMC INFO API response:", data)
     if 'data' in data and data['data']:
-        for symbol, info in data['data'].items():
-            if info and 'id' in info:
-                return info['id']
-    print("Error from CMC API:", data)
-    return None
+        token_info = None
+        for v in data['data'].values():
+            if isinstance(v, list):
+                token_info = v[0]
+            elif isinstance(v, dict):
+                token_info = v
+            break
+        if not token_info:
+            # fallback or error
+            token_info = {}
+    else:
+        print("Error from CMC API:", data)
+        token_info = None
+    return token_info
 
 def parse_volume(volume_str):
     try:
@@ -86,7 +96,7 @@ def highlight_element(driver, element, color='red', background='yellow'):
 
 def get_chrome_options():
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless=new')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
@@ -100,14 +110,10 @@ def get_chrome_options():
     return chrome_options
 
 def get_webdriver():
-    try:
-        # Try to use ChromeDriverManager first
-        service = Service(ChromeDriverManager().install())
-    except:
-        # Fallback to system Chrome
-        service = Service('/usr/bin/chromedriver')
-    
-    return webdriver.Chrome(service=service, options=get_chrome_options())
+    # Automatically download and install chromedriver that matches the installed Chrome version
+    chromedriver_autoinstaller.install()
+    chrome_options = get_chrome_options()
+    return webdriver.Chrome(options=chrome_options)
 
 def get_top_dex_market_selenium(slug):
     url = f"https://coinmarketcap.com/currencies/{slug}/markets/"
@@ -351,7 +357,14 @@ def get_contract(slug):
         params = {'id': crypto_id}
         response = requests.get(CMC_INFO_URL, headers=headers, params=params)
         info = response.json()
-        token_info = info['data'][str(crypto_id)]
+        data = info['data']
+        token_info = None
+        for v in data.values():
+            if isinstance(v, list):
+                token_info = v[0]
+            elif isinstance(v, dict):
+                token_info = v
+            break
         token_name = token_info.get('name', slug)
     else:
         # Fallback: use slug as token name if API fails
@@ -422,7 +435,14 @@ def notify_investment_proposal():
                 params = {'id': crypto_id}
                 response = requests.get(CMC_INFO_URL, headers=headers, params=params)
                 info = response.json()
-                token_info = info['data'][str(crypto_id)]
+                data = info['data']
+                token_info = None
+                for v in data.values():
+                    if isinstance(v, list):
+                        token_info = v[0]
+                    elif isinstance(v, dict):
+                        token_info = v
+                    break
                 
                 # Now run Selenium operations
                 print("Starting Selenium operations...")
@@ -624,7 +644,14 @@ def telegram_webhook():
                     params = {'id': crypto_id}
                     response = requests.get(CMC_INFO_URL, headers=headers, params=params)
                     info = response.json()
-                    token_info = info['data'][str(crypto_id)]
+                    data = info['data']
+                    token_info = None
+                    for v in data.values():
+                        if isinstance(v, list):
+                            token_info = v[0]
+                        elif isinstance(v, dict):
+                            token_info = v
+                        break
                     token_name = token_info.get('name', slug)
                 else:
                     # Fallback: use slug as token name if API fails
