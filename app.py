@@ -47,16 +47,17 @@ def format_dollar(amount):
 
 def get_id_from_slug(slug):
     headers = {'X-CMC_PRO_API_KEY': CMC_API_KEY}
-    params = {'slug': slug}
-    response = requests.get(CMC_MAP_URL, headers=headers, params=params)
+    params = {'symbol': slug.upper()}
+    response = requests.get(CMC_INFO_URL, headers=headers, params=params)
     data = response.json()
-    print("CMC MAP API response:", data)
+    print("CMC INFO API response:", data)
     if 'data' in data and data['data']:
-        return data['data'][0]['id']
-    else:
-        # Optionally fallback to a static mapping if you want[]
-        print("Error from CMC API:", data)
-        return None
+        # data['data'] is a dict keyed by symbol, e.g. 'XMR'
+        for symbol, info in data['data'].items():
+            if info and 'id' in info:
+                return info['id']
+    print("Error from CMC API:", data)
+    return None
 
 def parse_volume(volume_str):
     try:
