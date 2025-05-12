@@ -1,0 +1,104 @@
+https://api.telegram.org/bot7678977006:AAGqOE_vMM1-8MVrNmiTfUFLgb0aC3ktQaY/setWebhook?url=https://4d73-143-44-193-167.ngrok-free.app/webhook
+
+
+https://api.telegram.org/bot8137079772:AAFfQWn9YH113_4KcvPQHcYqicecmvkIn7I/setWebhook?url=https://4d73-143-44-193-167.ngrok-free.app/webhook
+
+ngrok config add-authtoken 2uO8JO0IXfppXByit7EbOw6CUgw_3ue5Z7hnjmke4DjXPCNxc
+
+
+https://41e6-143-44-193-197.ngrok-free.app/crypto/contracts/bubblemaps
+
+👤 You
+ ├ id: 8012302240
+ ├ is_bot: false
+ ├ first_name: John Carlo
+ ├ last_name: Caintic
+ ├ username: Jccaintic (https://t.me/Jccaintic)
+ └ language_code: en (-)
+
+ https://coinmarketcap.com/currencies/wrapped-multiversx-egld/
+
+
+ 7678977006:AAEOLzVop7uhMLACStxxn0IOXGnI6iiP5Pg BOT AUTH VICTUS
+
+ CMC_API_KEY = 'fa253a05-6e6d-4993-8f69-a8e3ad522a49'
+CMC_INFO_URL = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/info'
+CMC_MAP_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
+TELEGRAM_BOT_TOKEN = '7678977006:AAEOLzVop7uhMLACStxxn0IOXGnI6iiP5Pg'
+TELEGRAM_CHAT_ID = '8012302240'
+TELEGRAM_API_URL = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
+work
+
+
+
+my telegram bot 8137079772:AAFfQWn9YH113_4KcvPQHcYqicecmvkIn7I
+
+
+
+CMC_MAP_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
+TELEGRAM_BOT_TOKEN = '8137079772:AAFfQWn9YH113_4KcvPQHcYqicecmvkIn7I'
+TELEGRAM_CHAT_ID = ' 7848100931'
+TELEGRAM_API_URL = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
+akua
+
+
+ngrok config add-authtoken 2wm17l5dwTLBB7pf3n7kLZ1wDo2_7NB5UJ5WJfQy3skwz6KFH
+kuya
+
+
+https://api.telegram.org/bot7678977006:AAEOLzVop7uhMLACStxxn0IOXGnI6iiP5Pg/setWebhook?url=https://0529-143-44-193-167.ngrok-free.app/webhook
+
+
+
+
+Issues
+
+ififix yung value sa dempc specifically  /
+pag walang DEX, basahan niya lang yung CEX /
+Main volume 24h yung babasahin hindi yung pair volume 24h
+basahin nya yung main volume 24h tapos and i-identify nya yung highest liquidity score nakabase sa condition /
+nakuha yung highest CEX /
+di nag exist yung pumpswap sa t1t2 kaya nag error ang bot/ 
+adding spam protection
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Market cap > $1m?) if no skip 
+if yes (24h Volume >150k?) if no skip 
+if yes (Listed on T1/T2 CEX?) no skip
+if yes (Binance Listed?) if yes Proceed to A
+if no (Identify CEX Highest Liquidity Score or Top 1) Tier 1: Binance, Coinbase, OKX, Bybit, Gate, KuCoin, Kraken Tier 2: BitMart, MEXC, Bitget, LBank, Coinstore, CoinEx,HTX,Weex then
+if  (24hr Volume of CEX: < 150K and Liquidity Score: 1–150) if yes (with DEX?) no skip
+if no(24hr Volume of CEX: >150K and Liquidity Score: 150-250) if yes (with DEX?) no skip
+if no(24hr Volume of CEX: >150K-250K and Liquidity Score: 250-350) if yes (with DEX) (no dex but highest Liquidity Score:  250-350 of CEX)  bot will reply  minimum commitmend 250K- investment350K and max 500 - 1K
+if no(24hr Volume of CEX: >250K-500K and Liquidity Score: 350-450) if yes (with DEX) (no dex but highest Liquidity Score: 350-450 of CEX) bot will reply  minimum commitmend 350K- investment500K min and max 1K - 2.5K
+if no(24hr Volume of CEX: >500K-1M and Liquidity Score: 450-550) if yes (with DEX)(no dex but highest Liquidity Score: 450-550 of CEX)  bot will reply  minimum commitmend500K-investment600K min and max 2.5K - 5K
+if no(24hr Volume of CEX: >1M-3M and  Liquidity Score: 550-600) if yes (with DEX?) (no dex but highest Liquidity Score: 550-600 of CEX) bot will reply  minimum commitmend 600K-investment800K min and max 5K - 10K min and max 10K - 25K
+
+Proceed to A (24hr Volume of CEX: >3M+ and Liquidity Score: 600+) if yes (with DEX) no  bot will reply  minimum commitmend800K-investment1Ml
+
+if (with DEX was all YES) then Check if Top1 or Highest Liquidity Score
+
+if(DEX Liquidity < $25K?) if yes skip offer the one that was named  ("final_liquidity": )
+if no ($50K > DEX Liquidity > $25K?) if yes  bot will reply  minimum commitmend250K-350K
+if no ($100K > DEX Liquidity > $50K?) if yes  bot will reply  minimum commitmend350K-500K
+if no ($250K > DEX Liquidity > $100K?) if yes  bot will reply  minimum commitmend 500K-600K
+if no ($1M > DEX Liquidity > $250K?) if yes  bot will reply  minimum commitmend600K-800K
+if no ($3M > DEX Liquidity > $1M?) if yes  bot will reply  minimum commitmend800K-1M
+if no DEX Liquidity > $3M?) if yest ->1M -  investment->3M
+ 
+
+
+github
+
+CarloCaintic123
