@@ -45,14 +45,28 @@ def format_dollar(amount):
         return None
     return "${:,.0f}".format(amount)
 
-def get_id_from_slug(slug):
+def get_symbol_from_slug(slug):
     headers = {'X-CMC_PRO_API_KEY': CMC_API_KEY}
-    params = {'symbol': slug.upper()}
+    params = {'listing_status': 'active'}
+    response = requests.get(CMC_MAP_URL, headers=headers, params=params)
+    data = response.json()
+    if 'data' in data:
+        for coin in data['data']:
+            if coin['slug'].lower() == slug.lower():
+                return coin['symbol']
+    return None
+
+def get_id_from_slug(slug):
+    symbol = get_symbol_from_slug(slug)
+    if not symbol:
+        print(f"Could not find symbol for slug: {slug}")
+        return None
+    headers = {'X-CMC_PRO_API_KEY': CMC_API_KEY}
+    params = {'symbol': symbol}
     response = requests.get(CMC_INFO_URL, headers=headers, params=params)
     data = response.json()
     print("CMC INFO API response:", data)
     if 'data' in data and data['data']:
-        # data['data'] is a dict keyed by symbol, e.g. 'XMR'
         for symbol, info in data['data'].items():
             if info and 'id' in info:
                 return info['id']
